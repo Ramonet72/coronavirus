@@ -5,7 +5,7 @@ var ySeparation = 30;
 var FullData;
 var position = [];
 var factor = 1.0;
-var raceType = "deaths";
+var raceType = "cases";
 // window.onload = function () {
 
 //     var info = document.getElementById("info");

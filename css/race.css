@@ -1,7 +1,7 @@
 @font-face {
   font-family: Papyrus;
   /* src: url(Design/PAPYRUS.TTF); */
-  src: url(Design/LED\ Dot-Matrix.ttf);
+  src: url(../Design/LED\ Dot-Matrix.ttf);
 }
 
 body {

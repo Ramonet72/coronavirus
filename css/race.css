@@ -1,0 +1,436 @@
+@font-face {
+  font-family: Papyrus;
+  /* src: url(Design/PAPYRUS.TTF); */
+  src: url(Design/LED\ Dot-Matrix.ttf);
+}
+
+body {
+    background-color:#AAAAAA;
+}
+#board{
+    /* background: blue; */
+    /* width:50%;
+    border-radius:0px;
+    margin: 0 auto;
+    height: 60px;
+*/
+    max-width:50%x;
+    max-height:50%; 
+    position: absolute;
+    top: 0px;
+    padding: 20px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+img.score {
+  max-width:100%;
+  max-height:100%;
+  position: absolute;
+  top: 0px;
+}
+
+
+#scoreboard1 {
+  opacity: 0.6;
+  position: absolute;
+  top: 220px;
+  /* padding: 20px; */
+  left: 0px;
+  z-index: 10;
+}
+#scoreboard2 {
+  opacity: 0.6;
+  position: absolute;
+  top: 220px;
+  /* padding: 20px; */
+  left: 600px;
+}
+
+#info{
+    color:white;
+    text-align:center;
+    padding : 10px;
+}
+h4 {
+    padding:0px;
+}
+#controls {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#empty {
+    /* background-color: #edeabd; */
+    background-color: transparent;
+    min-height:150px;
+    margin-bottom:0px;
+    position:relative;
+}
+
+div.block{
+    /* background-color: #edeabd; */
+    background-color: transparent;
+    /* min-height:30px; */
+    margin-bottom:0px;
+    position:absolute;
+    height: 40px;
+}
+img.horseImg{
+    position:absolute;
+    left: -40px;
+    vertical-align: middle;
+    align-content: center;
+    float: left;
+}
+img.objImg{
+    position:absolute;
+    left: -40px;
+    z-index: -200;
+}
+img.banner{
+    max-width:100%;
+    max-height:100%;
+    position: absolute;
+    top: 0px;
+}
+
+canvas{
+    position:absolute;
+    width:  100%;
+  height: 100%;
+    left:0;
+    top:0;
+    z-index:-1;
+  }
+
+  /* canvas{
+    position:absolute;
+    width:  100%;
+  height: 100%;
+    left:0;
+    top:0;
+    z-index:100;
+  } */
+
+#container {
+    /* position:absolute;
+    z-index:0;*/
+    left:12px;
+    padding-top: 400px;
+    top:200px;
+   }
+
+#startButton{
+    margin:20px 0px;
+    padding:20px 20px;
+    background: lightgreen;
+    border-style:none;
+    border-radius:50px;
+}
+#controls{
+    /* margin-top:30px; */
+    margin-left:10px;
+}
+
+p{
+    line-height: 1;
+}
+
+p{
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Buttons {
+ /* position: absolute;     
+ top: 130px;
+ left: -10px; */
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    float: left;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 26px;
+    font-family: "Papyrus";
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+
+  
+
+  .buttonGroup {
+      display: block; /* Make the buttons appear below each other */
+      padding-bottom: 20px;
+      padding-right: 20px;
+      position:absolute; bottom:0; right:0;
+      /* z-index: 2000; */
+     }
+
+     .buttonGroup2 {
+      display: block; 
+      padding-bottom: 30px;
+      padding-right: 80px;
+      /* min-width: 300px; */
+      position:absolute; 
+      bottom:0; 
+      /* right:50px; */
+     }
+
+.buttonGroup a {
+  /* display: block;  */
+
+  }
+
+  .infoButton {
+    position: absolute;
+    right: 30px;
+    top: 40px;
+  }
+
+  .switch {
+    margin: 4rem auto;
+  }
+  /* main styles */
+  .switch {
+    width: 24rem;
+    position: relative;
+  }
+  .switch input {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .switch input:checked {
+    z-index: 1;
+  }
+  .switch input:checked + label {
+    opacity: 1;
+    cursor: default;
+  }
+  .switch input:not(:checked) + label:hover {
+    opacity: 0.5;
+  }
+  .switch label {
+    color: #fff;
+    opacity: 0.33;
+    transition: opacity 0.25s ease;
+    cursor: pointer;
+  }
+  .switch .toggle-outside {
+    height: 100%;
+    border-radius: 2rem;
+    padding: 0.25rem;
+    overflow: hidden;
+    transition: 0.25s ease all;
+    box-sizing: border-box;
+  }
+  .switch .toggle-inside {
+    border-radius: 5rem;
+    background: #4a4a4a;
+    position: absolute;
+    transition: 0.25s ease all;
+    box-sizing: border-box;
+  }
+
+  .switch--vertical {
+    /* width: 12rem; */
+    height: 6rem;
+    width: 160px;
+    left: 0px;
+    margin-top: 50px;
+    margin-left: -30px;
+  }
+  .switch--vertical input {
+    height: 100%;
+    width: 3rem;
+    right: 0;
+    margin: 0;
+  }
+  .switch--vertical label {
+    font-family: "Open Sans";
+  width: 100px;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    display: block;
+    /* width: 8rem; */
+    height: 50%;
+    margin: 0;
+    text-align: left;
+  }
+  .switch--vertical .toggle-outside {
+    background: #fff;
+    position: absolute;
+    width: 3rem;
+    height: 100%;
+    right: 0;
+    top: 0;
+  }
+  .switch--vertical .toggle-inside {
+    height: 2.5rem;
+    left: 0.25rem;
+    top: 0.25rem;
+    width: 2.5rem;
+  }
+  .switch--vertical input:checked ~ .toggle-outside .toggle-inside {
+    top: 0.25rem;
+    background: #2ecc70a6;
+    border: 1px solid rgba(0,0,0,0.2);
+    
+  }
+  .switch--vertical input ~ input:checked ~ .toggle-outside .toggle-inside {
+    top: 3.25rem;
+    background: rgba(194, 0, 0, 0.349);
+  }
+  .switch--no-label label {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  .switch--no-label input:checked ~ .toggle-outside .toggle-inside {
+    /* background: rgba(194, 0, 0, 0.2); */
+    background: #2ecc70a6;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+  .switch--no-label input ~ input:checked ~ .toggle-outside {
+    background: #fff;
+  }
+  .switch--no-label input ~ input:checked ~ .toggle-outside .toggle-inside {
+    background: rgba(194, 0, 0, 0.349);
+  }
+  .switch--no-label.switch--vertical {
+    width: 3rem;
+  }
+  .switch--no-label.switch--horizontal {
+    width: 6rem;
+  }
+  .switch--no-label.switch--horizontal input,
+  .switch--no-label.switch--horizontal .toggle-outside {
+    left: 0;
+  }
+  .switch--expanding-inner input:checked + label:hover ~ .toggle-outside .toggle-inside {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .switch--expanding-inner.switch--horizontal input:hover ~ .toggle-outside .toggle-inside {
+    width: 3.5rem;
+  }
+  .switch--expanding-inner.switch--horizontal input:hover ~ input:checked ~ .toggle-outside .toggle-inside {
+    left: 2.25rem;
+  }
+  .switch--expanding-inner.switch--vertical input:hover ~ .toggle-outside .toggle-inside {
+    height: 3.5rem;
+  }
+  .switch--expanding-inner.switch--vertical input:hover ~ input:checked ~ .toggle-outside .toggle-inside {
+    top: 2.25rem;
+  }
+  /* mixin */
+  
+  .modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 1000;
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 44rem;
+    border-radius: 0.5rem;
+}
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}

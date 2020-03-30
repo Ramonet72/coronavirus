@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CoronaVirus Race</title>
+    <link rel="stylesheet" type="text/css" href="./css/race.css" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa {
+            padding: 20px;
+            font-size: 50px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            opacity: 0.6;
+            border-radius: 50%;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-pinterest {
+            background: #cb2027;
+            color: white;
+        }
+
+        .fa-snapchat-ghost {
+            background: #fffc00;
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+        .fa-skype {
+            background: #00aff0;
+            color: white;
+        }
+
+        .fa-android {
+            background: #a4c639;
+            color: white;
+        }
+
+        .fa-dribbble {
+            background: #ea4c89;
+            color: white;
+        }
+
+        .fa-vimeo {
+            background: #45bbff;
+            color: white;
+        }
+
+        .fa-tumblr {
+            background: #2c4762;
+            color: white;
+        }
+
+        .fa-vine {
+            background: #00b489;
+            color: white;
+        }
+
+        .fa-foursquare {
+            background: #45bbff;
+            color: white;
+        }
+
+        .fa-stumbleupon {
+            background: #eb4924;
+            color: white;
+        }
+
+        .fa-flickr {
+            background: #f40083;
+            color: white;
+        }
+
+        .fa-yahoo {
+            background: #430297;
+            color: white;
+        }
+
+        .fa-soundcloud {
+            background: #ff5500;
+            color: white;
+        }
+
+        .fa-reddit {
+            background: #ff5700;
+            color: white;
+        }
+
+        .fa-rss {
+            background: #ff6600;
+            color: white;
+        }
+    </style>
+</head>
+
+<body onload="startRace()">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <div id="container" align="center">
+        <canvas id="canvas"></canvas>
+        <div align="right" class="buttonGroup">
+            <!-- <a href="https://www.facebook.com/ramon.nogueron" class="fa fa-facebook"></a> -->
+            <a href="https://twitter.com/intent/tweet?text=The CoronaVirus Race! xD http://nogueron.net:5500/race.html"
+                class="fa fa-twitter"></a>
+            <a href="mailto:ramon.nogue@gmail.com" class="fa fa-google"></a>
+        </div>
+        <div align="right" class="buttonGroup2">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_donations" />
+                <input type="hidden" name="business" value="BEU4NCRYPSWUL" />
+                <input type="hidden" name="item_name" value="To make awareness of the CoronaVirus!" />
+                <input type="hidden" name="currency_code" value="EUR" />
+                <input type="image" id="paypalImg"
+                    src="https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif" border="0"
+                    style="width: 200px;" name="submit" title="PayPal - The safer, easier way to pay online!"
+                    alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_ES/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+
+        </div>
+        <div align="center" class="Buttons">
+            <!-- <button id="startButton" onclick="startRace()">Start race</button> -->
+            <input id="buttonStart" type="image" onclick="startRace()" src="./Images/start2.png" alt="Submit"
+                width="200" height="200">
+
+        </div>
+        <div id="board">
+            <img className="banner" style="width: 700px;" src="./Images/banner7.png" />
+            <!-- <h4 id="info">
+                Welcome to the horse racing game! Press start and pray for your horse to win.
+            </h4> -->
+        </div>
+        <div class="infoButton">
+            <input id="infoB" type="image" src="./Images/info2.png" name="infoB" onclick="showInfo();">
+        </div>
+        <div id="controls">
+
+            <div class="switch switch--vertical">
+                <input id="radio-e" type="radio" name="fourth-switch" onclick="handleClick(this);" value="cases">
+                <label for="radio-g">Cases</label>
+                <input id="radio-f" type="radio" name="fourth-switch" onclick="handleClick(this);" value="deaths"
+                    checked="checked">
+                <label for="radio-h">Deaths</label><span class="toggle-outside"><span
+                        class="toggle-inside"></span></span>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <div>
+                    <p><b><u>INFORMATION</u></b></p>
+                    <p>&nbsp;</p>
+                    <p>The CoronaVirus Race ~ Made with Love by Ray Nogue. Send comments below or write me: <a
+                            href="mailto: ramon.nogue@gmail.com">ramon.nogue@gmail.com</a></p>
+                    <p>&nbsp;</p>
+                    <div
+                        style="height:100px; border:1px solid #ccc; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:x-small;color: gray;overflow:auto;">
+
+                        <p>&nbsp;</p>
+                        <p>I created this page as an exercise for learning purposes. It's my first attempt to create a
+                            living web page. So I had to learn HTML, Javascript and CSS.</p>
+                        <p>&nbsp;</p>
+                        <p>I am aware of all the trouble the Coronavirus COVID-19 is causing in the world and I thought
+                            I can make something funny but at the same time useful to create awareness. The information
+                            displayed is real-time information from: <a
+                                href="https://www.worldometers.info/coronavirus/" target="_blank"
+                                rel="noopener nofollow"
+                                data-lynx-mode="asynclazy">https://www.worldometers.info/coronavirus/</a>)</p>
+                        <p>&nbsp;</p>
+                        </p>
+                        <p><b>FAIR USE STATEMENT</b></p>
+                        <p>&nbsp;</p>
+                        <p>This page may contain copyrighted material the use of which has not always been specifically
+                            authorized by the copyright owner. Most of the time, however, we give credits to the author
+                            of quotes, photos and other related materials. We sourced these materials from various
+                            internet sites, in an effort to advance understanding of environmental, political,
+                            geographical, anthropological, biological, human rights, economic, democratic, scientific,
+                            cultural and social justice issues, etc.</p>
+                        <p>&nbsp;</p>
+                        <p>We believe the use of materials on this site constitutes a ‘fair use’ of any such copyrighted
+                            material (referenced and provided for in section 107 of the US Copyright Law). In accordance
+                            with Title 17 U.S.C. Section 107, the material on this site is distributed without profit to
+                            those who have expressed a prior interest in receiving the included information for research
+                            and educational purposes. (For more information go to: <span
+                                id="bd_nd_B937DB990D1548698380D65CF906E308_anchor_0" style=""><img
+                                    id="bd_nd_B937DB990D1548698380D65CF906E308_icon_0"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAA7FJREFUWAnNV1lIlFEU/u4/45gLY3symWkZhGNaRBst6kMEFS2QD1FQEBVFEUUPhdBDEdJmD+09FdGTYRAktMCUT4YttvqQlIaZSxEamk4zczvnOv8w0/z/LI5WB/Teueec7zv3nvPf//wCMYrzbZmtt02UeoE1kDIfEA5A0h+LaKN5G4R4ZwHupDmk662zyj2oi/xfRFYDOa6yTOnGEQmxSULao9mzXkD0CMibwoajzaVV7ZF8TAPIe783eeBjRzk5H6Adp0UCMdUJ0Uu6yuTcScebZpwbMLIzDIB37f0lbhPxQiOnuNeEqLMkyfVGpxEWQO7DjYUer+cukWTFTRTZoTVJw8oPy6teB5uFBKB27kb9CJDrnK0WG+YFn4Smazjn6tiHf+c6BY9ZzMFc+mIgAFVww5VzHd1oJA5/cSutSoG/6JqGXO1GRJHW6OmgoszjVKgT4Od8uMmTNZt5CPRYK06y0PiG40vG3Dp+zbrMJXAtPou8tMmmzszJ3Bpfr7HecKZoQYqlYwtxpmA3slImoHr+MdMgmJO5NXW3BwEkMp1ln4arsw8iSbMqmFc9H9DcZ34TM7dGuacXS+IyNWUSrs85jDTrKAX2msh3NJyGRxKNmRA3FSG/1RKTcTY7bswtx/jkDAXU0teBLc8r0OftjwIsHBSA/ko1t102rghnC/bAqLJTLaNwjXaek5qpAL4OdGPzs+P46u42BwxopGMwWYGF8El2ykScL9yH0UnpmJmeje0Np9Da36UMrcKCK0UHUJQxXf3u9fRj64sKtPw0z3swg6BK5BRQM2EuC8bkw25NVQZOew5qFp0AVzrLKecuFI+frea/fB7sfHkGXHixihTii5hyv8wFiZJITpwC/RTYzit9qP/eiIVjncpNSon9by6g+kttJJhwncAjjduocE3oSu23l1hddwiNP1qUwiK0ADkvVLy/GT85OxK3xj0cz6PJp5+dWPukHA86n4aYurpe4HJzTBAhfvyDuTVuILmHC9MaLPT73NjWcBK3Pj+i60OqS2YLFd1QhDkHucl76r2yiz5gVzxAGxzFqGmvQ5/PsNWLCkXVf6llRdVuGikV1L1SPriBjFlutT0eMjlzKU5iUwH4W6TKmNkTN6zU2zIVAONx60yR1SWOHQWBOBSX3+z/aUo5ID4Wq8W6iqat/gCHc1BtuX70OnDICeiLf/PDJFADOjmPHCXlqYRq4li8T0cwjvIlDMb6c+e6neEJ6Eoe+TT+ycdpcBA8H6nP898PW2+tnIPs1AAAAABJRU5ErkJggg=="
+                                    class="bd_nd_B937DB990D1548698380D65CF906E308_icon_green"
+                                    style="border: 0px; cursor: pointer; display: inline; margin-right: 3px; height: 16px; width: 16px;"></span><a
+                                href="http://www.copyright.gov/fls/fl102.html?fbclid=IwAR3w7XizvGexZlfHAQzXDJs_HQfdfO-G2RG0mawa2ElWhxl-wbW6gWyV388"
+                                target="_blank" rel="noopener nofollow"
+                                data-lynx-mode="asynclazy">http://www.copyright.gov/fls/fl102.html</a>)</p>
+                        <p>&nbsp;</p>
+                        <p>If you wish to use any copyrighted material from this site for purposes of your own that go
+                            beyond ‘fair use’, you must obtain expressed permission from the copyright owner. If you are
+                            the owner of any copyrighted material and believe the use of any such material does not
+                            constitute "fair use", please contact us, so we can make proper corrections, and ultimately,
+                            take it off the post, if proven necessary.</p>
+                        <p>&nbsp;</p>
+                        <p>DISCLAIMER</p>
+                        <p>The owner of this page, its administrators, or representatives will not be held personally
+                            responsible, nor liable for any damages, actual or consequential, for any posts by third
+                            parties which may violate any law.</p>
+                        <p>&nbsp;</p>
+                        <p>-----</p>
+                    </div>
+                    </p>
+
+                    <div style="height:auto;overflow:auto;">
+                        <script>
+                            var idcomments_acct = '6534eaec2e20f6d1fa1d109c23c70c51';
+                            var idcomments_post_id;
+                            var idcomments_post_url;
+                        </script>
+                        <span id="IDCommentsPostTitle" style="display:none"></span>
+                        <script type='text/javascript'
+                            src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+
+                    </div>
+
+                    <script src="js/race.js"></script>
+                    <script>
+
+                        // var countries = getcountries;
+                        var canvas = document.getElementById("canvas"),
+                            ctx = canvas.getContext("2d");
+                        ctx.canvas.width = window.innerWidth;
+                        ctx.canvas.height = window.innerHeight;
+
+                        var factorX = 1.1, factorY = 1.1;
+                        // canvas.width = 1920;
+                        // canvas.height = 1080;
+                        var background = new Image();
+                        background.src = "./Images/field5.png";
+                        var background2 = new Image();
+                        background.src = "./Images/field5.png";
+
+                        // Make sure the image is loaded first otherwise nothing will draw.
+                        background.onload = function () {
+                            ctx.drawImage(background, 0, 0, window.innerWidth, window.innerHeight);
+                        }
+                        var tomb = new Image();
+                        tomb.src = "./Images/coffin2.png";
+                        var sb1 = new Image();
+                        sb1.src = "./Images/sb1.png";
+                        var sb2 = new Image();
+                        sb2.src = "./Images/sb2.png";
+                        var nena = new Image();
+                        nena.src = "./Images/girl.gif";
+                        var nube = new Image();
+                        nube.src = "./Images/nube.png";
+                        // tomb.onload = function(){
+                        //     ctx.drawImage(tomb,0,0,60,60);  
+                        // } 
+                        var mapping = {
+                            "China": { FirstName: "horse1", Index: "1" },
+                            "Italy": { FirstName: "horse2", Index: "2" },
+                            "Iran": { FirstName: "horse10", Index: "10" },
+                            "Spain": { FirstName: "horse4", Index: "4" },
+                            "France": { FirstName: "horse5", Index: "5" },
+                            "USA": { FirstName: "horse3", Index: "3" },
+                            "Germany": { FirstName: "horse8", Index: "8" },
+                        }
+
+                        for (i = 0; i < 11; i++) {
+                            var iDiv = document.createElement('div');
+                            iDiv.id = 'circuit' + (i + 1);
+                            iDiv.className = 'block';
+                            document.getElementById('container').appendChild(iDiv);
+                            // Now create and append to iDiv
+                            var innerDiv = document.createElement('img');
+                            innerDiv.id = 'horse' + (i + 1);
+                            innerDiv.className = 'horseImg';
+                            if (i % 11 == 0) {
+                                innerDiv.src = './Images/horse_one.gif';
+                                innerDiv.width = 160;
+                                innerDiv.height = 100;
+                            } else if (i % 11 == 1) {
+                                innerDiv.src = './Images/mario.gif';
+                                innerDiv.width = 120;
+                                innerDiv.height = 120;
+                                var innerDiv2 = document.createElement('img');
+                                innerDiv2.id = 'horse2' + (i + 1);
+                                innerDiv2.className = 'horseImg';
+                                innerDiv2.src = './Images/horse_alone.gif';
+                                innerDiv2.width = 140;
+                                innerDiv2.height = 120;
+                            } else if (i % 11 == 2) {
+                                innerDiv.src = './Images/trump3.gif';
+                                innerDiv.width = 100;
+                                innerDiv.height = 90;
+                                // innerDiv.width = 160;
+                                // innerDiv.height = 100;
+                            } else if (i % 11 == 3) {
+                                innerDiv.src = './Images/horse_smaller.gif';
+                                innerDiv.width = 140;
+                                innerDiv.height = 115;
+                            } else if (i % 11 == 4) {
+                                innerDiv.src = './Images/pig.gif';
+                                innerDiv.width = 50;
+                                innerDiv.height = 50;
+                            } else if (i % 11 == 5) {
+                                innerDiv.src = './Images/fox.gif';
+                                innerDiv.width = 100;
+                                innerDiv.height = 70;
+                            }
+                            else if (i % 11 == 6) {
+
+                                innerDiv.src = './Images/pikachu.gif';
+                                innerDiv.width = 55;
+                                innerDiv.height = 42;
+                            }
+                            else if (i % 11 == 7) {
+                                innerDiv.src = './Images/car.gif';
+                                innerDiv.width = 80;
+                                innerDiv.height = 80;
+                            }
+                            else if (i % 11 == 8) {
+                                innerDiv.src = './Images/dino.gif';
+                                innerDiv.width = 160;
+                                innerDiv.height = 100;
+                            }
+                            else if (i % 11 == 9) {
+                                innerDiv.src = './Images/tank.gif';
+                                innerDiv.width = 120;
+                                innerDiv.height = 60;
+                            }
+                            else if (i % 11 == 10) {
+                                innerDiv.src = './Images/crow.gif';
+                                innerDiv.width = 60;
+                                innerDiv.height = 70;
+                            }
+                            innerDiv.width *= factorX;
+                            innerDiv.height *= factorY;
+
+                            iDiv.appendChild(innerDiv);
+                            var p = document.createElement('p');
+                            p.id = 'horseText' + (i + 1);
+                            //    p.innerText = 'Horse ' + (i+1);
+                            iDiv.appendChild(p);
+                            if (innerDiv2 != null) {
+                                var iDiv2 = document.createElement('div');
+                                iDiv2.id = 'circuit2' + (i + 1);
+                                iDiv2.className = 'block';
+                                document.getElementById('container').appendChild(iDiv2);
+                                iDiv2.appendChild(innerDiv2);
+                                innerDiv2 = null;
+                            }
+                        }
+
+                        for (i = 0; i < 2; i++) {
+                            var iDiv = document.createElement('div');
+                            iDiv.id = 'circuit' + (i + 1);
+                            iDiv.className = 'block';
+                            document.getElementById('container').appendChild(iDiv);
+                            // Now create and append to iDiv
+                            var innerDiv = document.createElement('img');
+                            innerDiv.id = 'objImg' + (i + 1);
+                            innerDiv.className = 'objImg';
+                            if (i % 2 == 0) {
+                                innerDiv.src = './Images/girl.gif';
+                                innerDiv.width = 60;
+                                innerDiv.height = 60;
+                            }
+                            else if (i % 2 == 1) {
+                                innerDiv.src = './Images/soldier.gif';
+                                innerDiv.width = 120;
+                                innerDiv.height = 120;
+                            }
+                            innerDiv.width *= factorX;
+                            innerDiv.height *= factorY;
+                            iDiv.appendChild(innerDiv);
+                        }
+
+                    </script>
+                </div>
+</body>
+</html>

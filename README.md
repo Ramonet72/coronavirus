@@ -9,6 +9,8 @@ The code is not very much clean or efficient, so I would not recommend you to us
 
 Fair use:  It is foreseen a fair use of resources in this website. Some of the images i used can be from sources with copyrights. Please if you think this it's offensive let me know and I will remove and replace those images.
 
+
+
 Thanks. Be Safe!
 
 Ray

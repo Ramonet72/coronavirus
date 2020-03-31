@@ -128,7 +128,9 @@ function startRace() {
     ctx.font = "20px Papyrus";
     ctx.fillStyle = "white";
     var posRip = 1;
+    var posVirus = 1;
     var restartRip = true;
+    var restartVirus = true;
     var numriders = 11;
     var loopCount = 0;
 
@@ -174,6 +176,12 @@ function startRace() {
         ctx.drawImage(background, wwidth - scrollPosition, 0, wwidth, wheight);
         scrollPosition += 20;
         scrollPosition %= wwidth;
+
+        if (restartVirus) {
+            posVirus = Math.floor((Math.random() * 5) + 1);
+            virusPosition = 0;
+            restartVirus = false;
+        }
 
         if (restartRip) {
             posRip = Math.floor((Math.random() * 5) + 1);
@@ -260,6 +268,26 @@ function startRace() {
                 ripPosition += 20;
             }
 
+            // // virus rolling
+            // if (posVirus == i) {
+
+            //     //update virus:
+            //     for (j = 0; j < 1; j++) {
+            //         document.getElementById("virus" + (j + 1)).style.left = (wwidth - virusPosition + 80) + "px";
+            //         //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
+            //         document.getElementById("virus" + (j + 1)).parentElement.style.top = ((yMargin + wheight / 2 + yinc * i) + 30) + "px";
+            //         //  ctx.drawImage(nena,window.innerWidth-scrollPosition,(600)*(window.innerHeight/1963)+30,40,40); 
+            //     }
+
+            //     // ctx.drawImage(virus, wwidth - virusPosition + 80, (yMargin + wheight / 2 + yinc * i) + 30, 40, 40);
+            //     if (wwidth - virusPosition < 0) {
+            //         restartVirus = true;
+            //     }
+            //     virusPosition = (virusPosition + 20) % wwidth;// += 20;
+            // }
+
+
+
             var record = FullData[i];
             WriteCountryLine(record, (yMargin + wheight / 2 + yinc * i) + 90, posx, factor);
 
@@ -275,9 +303,11 @@ function startRace() {
         for (j = 0; j < 1; j++) {
             document.getElementById("objImg" + (j + 1)).style.left = (wwidth - 100 - scrollPosition) + "px";
             //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
-            document.getElementById("objImg" + (j + 1)).parentElement.style.top = (wheight / 2 + 2 * yMargin) + "px";
+            document.getElementById("objImg" + (j + 1)).parentElement.style.top = (100+wheight / 2 + 2 * yMargin) + "px";
             //  ctx.drawImage(nena,window.innerWidth-scrollPosition,(600)*(window.innerHeight/1963)+30,40,40); 
         }
+
+
         // }
         loopCount++;
     }
@@ -387,7 +417,7 @@ function DrawPanel2(scoreposx2, scoreposy2, factor, box) {
     ctx.globalAlpha = 0.4;
     ctx.drawImage(sb2, scoreposx2, scoreposy2, 500 * factor, 130 * factor);
     ctx.fillStyle = "#FFFFFF";
-    if (box) ctx.fillRect(scoreposx2 + (50 + 145) * factor, scoreposy2 - 20*factor, 305 * factor, 20 * factor);
+    if (box) ctx.fillRect(scoreposx2 + (50 + 145) * factor, scoreposy2 - 20 * factor, 305 * factor, 20 * factor);
 }
 
 function WriteScoreTitleBox(scoreposx, scoreposy, scoreposx2, scoreposy2, factor, secondPanel) {

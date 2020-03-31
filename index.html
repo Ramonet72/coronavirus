@@ -286,6 +286,8 @@
                         nena.src = "./Images/girl.gif";
                         var nube = new Image();
                         nube.src = "./Images/nube.png";
+                        var virus = new Image();
+                        virus.src = "./Images/corona2.gif";
                         // tomb.onload = function(){
                         //     ctx.drawImage(tomb,0,0,60,60);  
                         // } 
@@ -402,14 +404,22 @@
                                 innerDiv.width = 60;
                                 innerDiv.height = 60;
                             }
-                            else if (i % 2 == 1) {
-                                innerDiv.src = './Images/soldier.gif';
-                                innerDiv.width = 120;
-                                innerDiv.height = 120;
-                            }
+                            // else if (i % 2 == 1) {
+                            //     innerDiv.src = './Images/soldier.gif';
+                            //     innerDiv.width = 120;
+                            //     innerDiv.height = 120;
+                            // }
                             innerDiv.width *= factorX;
                             innerDiv.height *= factorY;
                             iDiv.appendChild(innerDiv);
+
+                            // var innerDiv = document.createElement('img');
+                            // innerDiv.id = 'virus' + (i + 1);
+                            // innerDiv.className = 'objImg';
+                            // innerDiv.src = './Images/corona2.gif';
+                            // innerDiv.width = 30;
+                            // innerDiv.height = 30;
+                            // iDiv.appendChild(innerDiv);
                         }
 
                     </script>

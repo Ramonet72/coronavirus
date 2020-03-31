@@ -88,7 +88,7 @@ img.horseImg{
 img.objImg{
     position:absolute;
     left: -40px;
-    z-index: 0;
+    z-index: 5;
 }
 img.banner{
     max-width:100%;

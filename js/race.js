@@ -233,7 +233,7 @@ function startRace() {
                 posx = (position[i] + xMargin);
                 posy = (yMargin + wheight / 2 + yinc * i) - document.getElementById(country.FirstName).height / 2 + 60;
 
-                document.getElementById(country.FirstName).style.zIndex = i;
+                document.getElementById(country.FirstName).style.zIndex = i+10;
                 document.getElementById(country.FirstName).style.left = posx + "px";
                 //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
                 document.getElementById(country.FirstName).parentElement.style.top = posy + "px";
@@ -249,7 +249,7 @@ function startRace() {
                 while (arrayTakenGIF[j]) j = (j) % 11 + 1;
                 posx = (position[i] + xMargin);
                 posy = (yMargin + wheight / 2 + yinc * i) - document.getElementById("horse" + (j)).height / 2 + 70;
-                document.getElementById("horse" + (j)).style.zIndex = i;
+                document.getElementById("horse" + (j)).style.zIndex = i+10;
                 document.getElementById("horse" + (j)).style.left = posx + "px";
                 //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
                 document.getElementById("horse" + (j)).parentElement.style.top = posy + "px";

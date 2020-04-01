@@ -414,14 +414,20 @@
                             innerDiv.height *= factorY;
                             iDiv.appendChild(innerDiv);
 
-                            // var innerDiv = document.createElement('img');
-                            // innerDiv.id = 'virus' + (i + 1);
-                            // innerDiv.className = 'objImg';
-                            // innerDiv.src = './Images/corona2.gif';
-                            // innerDiv.width = 30;
-                            // innerDiv.height = 30;
-                            // iDiv.appendChild(innerDiv);
                         }
+
+                        var k = 0;
+                        var iDiv = document.createElement('div');
+                            iDiv.id = 'circuitVirus' + (k + 1);
+                            iDiv.className = 'block';
+                            document.getElementById('container').appendChild(iDiv);
+                            var innerDiv = document.createElement('img');
+                            innerDiv.id = 'virus' + (k + 1);
+                            innerDiv.className = 'objImg';
+                            innerDiv.src = './Images/corona.png';
+                            innerDiv.width = 30;
+                            innerDiv.height = 30;
+                            iDiv.appendChild(innerDiv);
 
                     </script>
                 </div>

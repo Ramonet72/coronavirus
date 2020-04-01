@@ -6,6 +6,14 @@ var FullData;
 var position = [];
 var factor = 1.0;
 var raceType = "cases";
+
+var virusImg = document.createElement('img');
+virusImg.id = 'virusCross';
+virusImg.className = 'objImg';
+virusImg.src = './Images/cross2.gif';
+virusImg.width = 30;
+virusImg.height = 30;
+
 // window.onload = function () {
 
 //     var info = document.getElementById("info");
@@ -178,8 +186,8 @@ function startRace() {
         scrollPosition %= wwidth;
 
         if (restartVirus) {
-            posVirus = Math.floor((Math.random() * 5) + 1);
-            virusPosition = 0;
+            posVirus = Math.floor((Math.random() * 10) + 1);
+            virusPosition = wwidth;
             restartVirus = false;
         }
 
@@ -214,6 +222,7 @@ function startRace() {
         for (k = 0; k < numriders; k++) {
             if (mapping[FullData[k].country] != undefined) arrayTakenGIF[mapping[FullData[k].country].Index] = true;
         }
+        var element;
 
         j = 1;
         for (i = 0; i < numriders/*FullData.length*/; i++) {
@@ -231,12 +240,13 @@ function startRace() {
             if (country != undefined) {
                 //     arrayTakenGIF[country.Index] = true;
                 posx = (position[i] + xMargin);
-                posy = (yMargin + wheight / 2 + yinc * i) - document.getElementById(country.FirstName).height / 2 + 60;
+                element = document.getElementById(country.FirstName);
+                posy = (yMargin + wheight / 2 + yinc * i) - element.height / 2 + 60;
 
-                document.getElementById(country.FirstName).style.zIndex = i+10;
-                document.getElementById(country.FirstName).style.left = posx + "px";
+                element.style.zIndex = i+10;
+                element.style.left = posx + "px";
                 //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
-                document.getElementById(country.FirstName).parentElement.style.top = posy + "px";
+                element.parentElement.style.top = posy + "px";
                 if (FullData[i].country == "Italy") {
                     //if (document.getElementById("horse2" + (i + 1)) != null) {
                     document.getElementById("horse2" + (country.Index)).style.left = (position[i] + xMargin - 150) + "px";
@@ -248,11 +258,12 @@ function startRace() {
                 // if (j==0) j=1;
                 while (arrayTakenGIF[j]) j = (j) % 11 + 1;
                 posx = (position[i] + xMargin);
-                posy = (yMargin + wheight / 2 + yinc * i) - document.getElementById("horse" + (j)).height / 2 + 70;
-                document.getElementById("horse" + (j)).style.zIndex = i+10;
-                document.getElementById("horse" + (j)).style.left = posx + "px";
+                element = document.getElementById("horse" + (j));
+                posy = (yMargin + wheight / 2 + yinc * i) - element.height / 2 + 70;
+                element.style.zIndex = i+10;
+                element.style.left = posx + "px";
                 //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
-                document.getElementById("horse" + (j)).parentElement.style.top = posy + "px";
+                element.parentElement.style.top = posy + "px";
                 if (document.getElementById("horse2" + (j)) != null) {
                     document.getElementById("horse2" + (j)).style.left = (position[i] + xMargin - 150) + "px";
                     document.getElementById("horse2" + (j)).parentElement.style.top = ((yMargin + wheight / 2 + yinc * i) - document.getElementById("horse2" + (j)).height / 2 + 70) + "px";
@@ -268,25 +279,34 @@ function startRace() {
                 ripPosition += 20;
             }
 
-            // // virus rolling
-            // if (posVirus == i) {
+            // virus rolling
+            //posVirus = 9;
+            if (posVirus == i) {
 
-            //     //update virus:
-            //     for (j = 0; j < 1; j++) {
-            //         document.getElementById("virus" + (j + 1)).style.left = (wwidth - virusPosition + 80) + "px";
-            //         //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
-            //         document.getElementById("virus" + (j + 1)).parentElement.style.top = ((yMargin + wheight / 2 + yinc * i) + 30) + "px";
-            //         //  ctx.drawImage(nena,window.innerWidth-scrollPosition,(600)*(window.innerHeight/1963)+30,40,40); 
-            //     }
+                //update virus:
+                for (k = 0; k < 1; k++) {
+                    document.getElementById("virus" + (k + 1)).style.left = (virusPosition - 50 - document.getElementById("virus" + (k + 1)).width) + "px";
+                    //   document.getElementById("horse" + (i+1)).style.top =  1*i + "px";
+                    document.getElementById("virus" + (k + 1)).parentElement.style.top = ((yMargin + wheight / 2 + yinc * i) + 70) + "px"; //((yMargin + wheight / 2 + yinc * i) + 30) + "px";
+                    //  ctx.drawImage(nena,window.innerWidth-scrollPosition,(600)*(window.innerHeight/1963)+30,40,40); 
+                }
 
-            //     // ctx.drawImage(virus, wwidth - virusPosition + 80, (yMargin + wheight / 2 + yinc * i) + 30, 40, 40);
-            //     if (wwidth - virusPosition < 0) {
-            //         restartVirus = true;
-            //     }
-            //     virusPosition = (virusPosition + 20) % wwidth;// += 20;
-            // }
-
-
+                // ctx.drawImage(virus, wwidth - virusPosition + 80, (yMargin + wheight / 2 + yinc * i) + 30, 40, 40);
+                if (virusPosition - posx - 200 <= 0) {
+                    // virus hit the target, we replace it
+                    clonedElement = element.cloneNode();
+                    storedElement = element;
+                    storedImage = element.src;
+                    element.src = './Images/cross.gif';
+                    element.width = 30;
+                    element.height = 30;
+                   // element.parentNode.replaceChild(virusImg, element);
+                   window.setTimeout(restoreElement, 3000);
+                    restartVirus = true;
+                }
+                virusPosition = (virusPosition - 20);// % wwidth;// += 20;
+            }
+//
 
             var record = FullData[i];
             WriteCountryLine(record, (yMargin + wheight / 2 + yinc * i) + 90, posx, factor);
@@ -311,6 +331,12 @@ function startRace() {
         // }
         loopCount++;
     }
+}
+
+function restoreElement() {
+storedElement.src = clonedElement.src; //storedImage;
+storedElement.width = clonedElement.width;
+storedElement.height = clonedElement.height;
 }
 
 function showInfo() {

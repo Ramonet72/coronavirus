@@ -186,13 +186,13 @@ function startRace() {
         scrollPosition %= wwidth;
 
         if (restartVirus) {
-            posVirus = Math.floor((Math.random() * 10) + 1);
+            posVirus = Math.floor((Math.random() * 11));
             virusPosition = wwidth;
             restartVirus = false;
         }
 
         if (restartRip) {
-            posRip = Math.floor((Math.random() * 5) + 1);
+            posRip = Math.floor((Math.random() * 11));
             ripPosition = 0;
             restartRip = false;
         }

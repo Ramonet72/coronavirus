@@ -126,6 +126,7 @@ var scoreposx;
 var scoreposy2;
 var scoreposx2;
 var factor = 1;
+var oneCuring = false;
 
 // the main function
 function startRace() {
@@ -224,6 +225,7 @@ function startRace() {
         }
         var element;
 
+
         j = 1;
         for (i = 0; i < numriders/*FullData.length*/; i++) {
             // text += FullData[i]. + "<br>";
@@ -290,11 +292,11 @@ function startRace() {
                     document.getElementById("virus" + (k + 1)).parentElement.style.top = ((yMargin + wheight / 2 + yinc * i) + 70) + "px"; //((yMargin + wheight / 2 + yinc * i) + 30) + "px";
                     //  ctx.drawImage(nena,window.innerWidth-scrollPosition,(600)*(window.innerHeight/1963)+30,40,40); 
                 }
-
+                
                 // ctx.drawImage(virus, wwidth - virusPosition + 80, (yMargin + wheight / 2 + yinc * i) + 30, 40, 40);
-                if (virusPosition - posx - 200 <= 0 ) {
+                if (virusPosition - posx - 200 <= 0 &&  !oneCuring) {
                     // virus hit the target, we replace it
-
+                    oneCuring = true;
                     clonedElement = element.cloneNode();
                     storedElement = element;
                     storedImage = element.src;
@@ -335,10 +337,13 @@ function startRace() {
 }
 
 function restoreElement() {
-storedElement.src = clonedElement.src; //storedImage;
-storedElement.width = clonedElement.width;
-storedElement.height = clonedElement.height;
-clonedElement = null;
+    if (oneCuring) {
+        storedElement.src = clonedElement.src; //storedImage;
+        storedElement.width = clonedElement.width;
+        storedElement.height = clonedElement.height;
+        oneCuring = false;
+    }
+
 }
 
 function showInfo() {

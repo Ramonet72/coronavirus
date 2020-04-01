@@ -292,8 +292,9 @@ function startRace() {
                 }
 
                 // ctx.drawImage(virus, wwidth - virusPosition + 80, (yMargin + wheight / 2 + yinc * i) + 30, 40, 40);
-                if (virusPosition - posx - 200 <= 0) {
+                if (virusPosition - posx - 200 <= 0 ) {
                     // virus hit the target, we replace it
+
                     clonedElement = element.cloneNode();
                     storedElement = element;
                     storedImage = element.src;
@@ -301,7 +302,7 @@ function startRace() {
                     element.width = 30;
                     element.height = 30;
                    // element.parentNode.replaceChild(virusImg, element);
-                   window.setTimeout(restoreElement, 3000);
+                   window.setTimeout(restoreElement, 1000);
                     restartVirus = true;
                 }
                 virusPosition = (virusPosition - 20);// % wwidth;// += 20;
@@ -337,6 +338,7 @@ function restoreElement() {
 storedElement.src = clonedElement.src; //storedImage;
 storedElement.width = clonedElement.width;
 storedElement.height = clonedElement.height;
+clonedElement = null;
 }
 
 function showInfo() {

@@ -193,7 +193,7 @@ function startRace() {
         }
 
         if (restartRip) {
-            posRip = Math.floor((Math.random() * 11));
+           // posRip = Math.floor((Math.random() * 11));
             ripPosition = 0;
             restartRip = false;
         }
@@ -274,7 +274,7 @@ function startRace() {
             }
             // updating rip
             if (posRip == i) {
-                ctx.drawImage(tomb, (position[i] + xMargin) - ripPosition + 80, (yMargin + wheight / 2 + yinc * i) + 30, 40, 40);
+                ctx.drawImage(tomb, (position[i] + xMargin) - ripPosition + 50, (yMargin + wheight / 2 + yinc * i) + 50, 40, 40);
                 if ((position[i] + xMargin) - ripPosition < 0) {
                     restartRip = true;
                 }
@@ -304,6 +304,10 @@ function startRace() {
                     element.src = './Images/cross.gif';
                     element.width = 30;
                     element.height = 30;
+                    var topVal = parseInt(element.style.left, 10);
+                    element.style.left = (topVal+120) + "px";
+
+                    posRip = i;
                    // element.parentNode.replaceChild(virusImg, element);
                    window.setTimeout(restoreElement, 1000);
                     restartVirus = true;

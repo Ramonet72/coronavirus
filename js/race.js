@@ -304,8 +304,8 @@ function startRace() {
                     element.src = './Images/cross.gif';
                     element.width = 30;
                     element.height = 30;
-                    var topVal = parseInt(element.style.left, 10);
-                    element.style.left = (topVal+120) + "px";
+                    // var topVal = parseInt(element.style.left, 10);
+                    // element.style.left = (topVal+120) + "px";
 
                     posRip = i;
                    // element.parentNode.replaceChild(virusImg, element);

@@ -5,6 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "stopOnEntry": false,
+            "cwd": "${fileDirname}",
+            "port": 9000,
+            "runtimeExecutable": "M:\\Software\\php-7\\php.exe"
+        },
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000
+        },
+        
+    
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",

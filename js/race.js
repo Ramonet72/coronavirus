@@ -300,6 +300,7 @@ function startRace() {
                     clonedElement = element.cloneNode();
                     storedElement = element;
                     storedImage = element.src;
+                    storedImageTop = element.parentElement.style.top;
                     element.src = './Images/cross.gif';
                     element.width = 30;
                     element.height = 30;
@@ -339,8 +340,10 @@ function startRace() {
 function restoreElement() {
     if (oneCuring) {
         storedElement.src = clonedElement.src; //storedImage;
+        storedElement.parentElement.style.top = storedImageTop;
         storedElement.width = clonedElement.width;
         storedElement.height = clonedElement.height;
+
         oneCuring = false;
     }
 

@@ -252,6 +252,7 @@ function startRace() {
                 if (FullData[i].country == "Italy") {
                     //if (document.getElementById("horse2" + (i + 1)) != null) {
                     document.getElementById("horse2" + (country.Index)).style.left = (position[i] + xMargin - 150) + "px";
+                    document.getElementById("horse2" + (country.Index)).style.zIndex = i+10;
                     document.getElementById("horse2" + (country.Index)).parentElement.style.top = ((yMargin + wheight / 2 + yinc * i) - document.getElementById("horse2" + (country.Index)).height / 2 + 45) + "px";
                 }
             }

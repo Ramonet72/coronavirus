@@ -40,6 +40,7 @@ virusImg.height = 30;
 var restartRip = true;
 var restartVirus = true;
 var element;
+var posRip = 1;
 
 // window.onload = showViewport;
 window.onresize = showViewport;
@@ -159,7 +160,6 @@ function startRace() {
     var position2 = 0;
     ctx.font = "20px Papyrus";
     ctx.fillStyle = "white";
-    var posRip = 1;
     var posVirus = 1;
     var numriders = 11;
     var loopCount = 0;
@@ -344,7 +344,7 @@ function UpdateTomb(position, xMargin, yMargin, wheight, yinc, i) {
     ctx.drawImage(tomb, (position + xMargin) - ripPosition + 50, (yMargin + wheight / 2 + yinc * i) + 50, 40, 40);
     if ((position + xMargin) - ripPosition < 0) {
         restartRip = true;
-    }
+    } else 
     ripPosition += 20;
 }
 

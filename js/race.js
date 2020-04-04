@@ -141,10 +141,11 @@ function clicked() {
     // modelDatails.style.left = "200px";
     // modalDetails.style.paddingTop = (wheight / 2) + "px";
     document.getElementById("dtitle").style.fontSize = (25 * factor) + "px";
+    document.getElementById("dtitle").innerHTML = countryData.country;
 
     var table = document.getElementById("details");
     table.style.fontSize = (20 * factor) + "px";
-    table.rows[0].cells[1].innerHTML = countryData.country;
+  //  table.rows[0].cells[1].innerHTML = countryData.country;
     table.rows[1].cells[1].innerHTML = countryData.cases;
     table.rows[2].cells[1].innerHTML = countryData.todayCases;
     table.rows[3].cells[1].innerHTML = countryData.deaths;

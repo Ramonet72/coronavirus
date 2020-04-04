@@ -3,6 +3,7 @@ var yMargin = -100;
 var scrollPosition = 0;
 var ySeparation = 30;
 var FullData;
+var WorldData;
 var position = [];
 var factor = 1.0;
 var raceType = "cases";
@@ -559,7 +560,8 @@ function GetData() {
             return resp.json();
         })
         .then(function (data) {
-            FullData = data;
+            WorldData = data[0];
+            FullData = data.slice(1);
             console.log(data);
         })
 }

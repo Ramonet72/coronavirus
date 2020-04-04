@@ -224,6 +224,7 @@ function startRace() {
 
         //we get the max ,which is the first, because we ordered before.
         var max = FullData[0];
+        var min = FullData[10]; // the eleventh position is min!
         // without ordering the max would be:
         // var max;
         // if (raceType == "deaths") {
@@ -257,7 +258,7 @@ function startRace() {
         j = 1;
         for (i = 0; i < numriders/*FullData.length*/; i++) {
             var record = FullData[i];
-            position[i] = ComputePosition(record, raceType, wwidth, xMargin, max, compressionPosition, offsetPosition);
+            position[i] = ComputePosition(record, raceType, wwidth, xMargin, max, min, compressionPosition, offsetPosition);
             var country = mapping[record.country];
 
             if (country != undefined) {
@@ -354,14 +355,14 @@ function UpdateOtherObjects(wwidth, wheight, yMargin, scrollPosition) {
     }
 }
 
-function ComputePosition(record, raceType, wwidth, xMargin, max, compressionPosition, offsetPosition) {
+function ComputePosition(record, raceType, wwidth, xMargin, max, min, compressionPosition, offsetPosition) {
     var cPos;
     if (raceType == "deaths") {
-        cPos = record.deaths * (wwidth - 2 * xMargin) / max.deaths;// * (window.innerWidth / 980);
+        cPos = record.deaths  / max.deaths * (wwidth - 2 * xMargin);// * (window.innerWidth / 980);
     } else if (raceType == "cases") {
-        cPos = record.cases * (wwidth - 2 * xMargin) / max.cases;// * (window.innerWidth / 980);
+        cPos = Math.sqrt((record.cases-min.cases) / (max.cases-min.cases)) * (wwidth - 2 * xMargin);// * (window.innerWidth / 980);
     } else if (raceType == "mortality") {
-        cPos = (record.deaths / record.cases) * (wwidth - 2 * xMargin) / (max.deaths / max.cases * 100);// * (window.innerWidth / 980);
+        cPos = (record.deaths / record.cases) / (max.deaths / max.cases * 100) * (wwidth - 2 * xMargin) ;// * (window.innerWidth / 980);
     }
     cPos *= compressionPosition;
     cPos -= offsetPosition;

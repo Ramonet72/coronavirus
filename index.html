@@ -7,6 +7,10 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="./Images/corona.ico">
+    <!-- <audio controls style="position:absolute; left: 0;right: 0;z-index: 100;">
+        <source src="Music/JablonskyLincolnBootleg.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio> -->
     <style>
         .fa {
             padding: 20px;
@@ -434,11 +438,20 @@
 
                 // innerDiv.onclick = "clicked(this)";
                 innerDiv.addEventListener("click", clicked);
+                innerDiv.addEventListener("mouseover", mouseover);
                 iDiv.appendChild(innerDiv);
                 var p = document.createElement('p');
                 p.id = 'horseText' + (i + 1);
                 //    p.innerText = 'Horse ' + (i+1);
                 iDiv.appendChild(p);
+/               // span
+                //<span class="tooltiptext">Tooltip text</span>
+                var spa = document.createElement("span");
+                spa.className = "tooltiptext";
+                spa.innerText = "tooltip text";
+                spa.id = "spa" + (i+1);
+                iDiv.appendChild(spa);
+
                 if (innerDiv2 != null) {
                     var iDiv2 = document.createElement('div');
                     iDiv2.id = 'circuit2' + (i + 1);

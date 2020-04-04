@@ -96,6 +96,17 @@ window.onclick = function (event) {
     // }
 }
 
+function mouseover() {
+    countryData = FullData.find(element => element.country == arguments[0].target.Name);
+    imgobj = document.getElementById(arguments[0].target.id);
+
+    spa = (imgobj.parentElement.getElementsByTagName("span"))[0];
+    spa.textContent = imgobj.Name;
+    spa.style.left = imgobj.style.left;
+    //spa.style.top = element.style.top;
+
+}
+
 // clicking the player -shows popup with details
 function clicked() {
     //we find the country data

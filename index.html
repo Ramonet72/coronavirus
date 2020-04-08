@@ -11,6 +11,10 @@
         <source src="Music/JablonskyLincolnBootleg.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
       </audio> -->
+      <meta property="og:title" content="Coronavirus Funny Race">
+<meta property="og:description" content="A funny realtime display of coronavirus stats worldwide.">
+<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+<meta property="og:url" content="./Images/featured.jpg">
     <style>
         .fa {
             padding: 20px;
@@ -360,6 +364,7 @@
                 "France": { FirstName: "horse5", Index: "5" },
                 "USA": { FirstName: "horse3", Index: "3" },
                 "Germany": { FirstName: "horse8", Index: "8" },
+                "Turkey" : { FirstName: "horse7", Index: "7" },
             }
 
             for (i = 0; i < 11; i++) {
@@ -400,16 +405,24 @@
                     innerDiv.width = 160;
                     innerDiv.height = 100;
                 } else if (i % 11 == 5) {
+                    innerDiv.src = './Images/pug.gif';
+                    // innerDiv.width = 100;
+                    // innerDiv.height = 70;
+                    innerDiv.width = 100;
+                    innerDiv.height = 100;
+                }
+                else if (i % 11 == 6) {
+
                     innerDiv.src = './Images/fox.gif';
                     innerDiv.width = 100;
                     innerDiv.height = 70;
                 }
-                else if (i % 11 == 6) {
+                // else if (i % 11 == 6) {
 
-                    innerDiv.src = './Images/pikachu.gif';
-                    innerDiv.width = 55;
-                    innerDiv.height = 42;
-                }
+                // innerDiv.src = './Images/pikachu.gif';
+                // innerDiv.width = 55;
+                // innerDiv.height = 42;
+                // }
                 else if (i % 11 == 7) {
                     innerDiv.src = './Images/car.gif';
                     innerDiv.width = 80;

@@ -519,7 +519,8 @@ function absoff(element) {
 };
 
 function GetData() {
-    fetch("https://corona.lmao.ninja/countries")
+    // fetch("https://corona.lmao.ninja/countries")
+    fetch("https://corona.lmao.ninja/v2/countries")
         //await fetch("http://nogueron.net:88/countries")
         .then(function (resp) {
             return resp.json();
